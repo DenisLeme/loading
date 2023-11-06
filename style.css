@@ -1,7 +1,11 @@
 .montando-o-painel {
+  
   background-color: #ffffff;
   display: flex;
   width: 100%;
+  height: 100%;
+  margin: 2vh;  
+  
 }
 
 .montando-o-painel .container {
@@ -9,7 +13,6 @@
   width: 100%;
   height: 100%;
   display: flex;
-  justify-items: center;
 }
 
 .montando-o-painel .overlap {
@@ -32,8 +35,7 @@
 
 .montando-o-painel .img {
   position: absolute;
-  /* width: 670px;
-  height: 504px; */
+  
   top: 196px;
   left: 615px;
 }
