@@ -1,5 +1,4 @@
 .montando-o-painel {
-  
   background-color: #ffffff;
   display: flex;
   width: 100%;
@@ -35,7 +34,6 @@
 
 .montando-o-painel .img {
   position: absolute;
-  
   top: 196px;
   left: 615px;
 }
