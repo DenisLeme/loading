@@ -1,15 +1,15 @@
 .montando-o-painel {
   background-color: #ffffff;
-  flex-direction: row;
-  justify-content: center;
+  display: flex;
   width: 100%;
 }
 
-.montando-o-painel .div {
+.montando-o-painel .container {
   background-color: var(--white);
-  width: 1440px;
-  height: 896px;
-  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-items: center;
 }
 
 .montando-o-painel .overlap {
@@ -32,8 +32,8 @@
 
 .montando-o-painel .img {
   position: absolute;
-  width: 670px;
-  height: 504px;
+  /* width: 670px;
+  height: 504px; */
   top: 196px;
   left: 615px;
 }
@@ -71,7 +71,7 @@
   top: 666px;
   background-color: var(--lightmode-graysgray-2-lightmode);
   border-radius: 500px;
-  position: relative; 
+  position: absolute;
   left: 155px;
 }
 
@@ -93,7 +93,7 @@
 
 
 .montando-o-painel #task1 {
-  position: relative;
+  
   width: fit-content;
   font-weight: 600;
   color: var(--lightmode-graysgray-6-lightmode);
@@ -103,7 +103,6 @@
   white-space: nowrap;
 }
 .montando-o-painel #task2 {
-  position: relative;
   width: fit-content;
   font-weight: 600;
   color: var(--lightmode-graysgray-6-lightmode);
@@ -114,7 +113,7 @@
 }
 
 .montando-o-painel .icon-UI-general {
-  position: relative;
+  
   width: 24px;
   height: 24px;
 }
@@ -140,7 +139,7 @@
 }
 
 .montando-o-painel #task3 {
-  position: relative;
+  
   width: fit-content;
   font-weight: 600;
   color: var(--lightmode-graysgray-6-lightmode);
@@ -150,7 +149,7 @@
   white-space: nowrap;
 }
 .montando-o-painel #task4 {
-  position: relative;
+  
   width: fit-content;
   font-weight: 600;
   color: var(--lightmode-graysgray-6-lightmode);
@@ -173,7 +172,7 @@
 } 
 .montando-o-painel .icon-UI-general-2 {
   margin-top: -51px;
-  position: relative;
+  
   width: 24px;
   height: 24px;
   margin-right: -1308px;
@@ -200,7 +199,7 @@
 
 .montando-o-painel .icon-UI-general-3 {
   margin-top: -91px;
-  position: relative;
+  
   width: 24px;
   height: 24px;
   margin-right: -1308px;
