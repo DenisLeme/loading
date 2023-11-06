@@ -1,163 +1,145 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" href="globals.css" />
-    <link rel="stylesheet" href="styleguide.css" />
-    <link rel="stylesheet" href="style.css" />
-    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js" integrity="sha512-YHQNqPhxuCY2ddskIbDlZfwY6Vx3L3w9WRbyJCY81xpqLmrM6rL2+LocBgeVHwGY9SXYfQWJ+lcEWx1fKS2s8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  </head>
 
-  
-  <body>
-    <div class="montando-o-painel">
-      <div class="div">
-        <div class="overlap"><img class="group" src="img/group-581.svg" /></div>
-        <img class="img" src="img/group-580.svg" />
-        <div class="text-wrapper">Aguarde...</div>
-        <div class="text-wrapper-2">Estamos montando sua plataforma</div>
-        <!-- <div class="overlap-group"><div class="rectangle"></div></div> -->
-        <div class="frame">
-          <h4 id="task1" style=" font-family: Poppins, Helvetica;">✓ Criando ambiente seguro.</h4>
-        </div>
-        <div class="frame-2">
-          <h4 id="task2" style=" font-family: Poppins, Helvetica;">✓ Criando painel de controle.</h4>
-        </div>
-        <div class="frame-3">
-          <h4 id="task3" style=" font-family: Poppins, Helvetica;">✓ Criando acessos dos clientes.</h4>
-        </div>
-        <div class="frame-4">
-          <h4 id="task4" style=" font-family: Poppins, Helvetica;">✓ Enviando dados por e-mail.</h4>
-        </div>
-        <div class="frame-5">
-          <h4 id="task5" style=" font-family: Poppins, Helvetica;">✓ Quase lá...</h4>
-        </div>
-        <div class="frame-6"> 
-        <h4 id="task6" style=" font-family: Poppins, Helvetica;">✓ Pronto! Redirecionando... </h4>
+<head>
+  <link rel="stylesheet" href="globals.css" />
+  <link rel="stylesheet" href="styleguide.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"
+    integrity="sha512-YHQNqPhxuCY2ddskIbDlZfwY6Vx3L3w9WRbyJCY81xpqLmrM6rL2+LocBgeVHwGY9SXYfQWJ+lcEWx1fKS2s8A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+  <input type="hidden" value="1" id="hdnPlataforma" />
+
+  <div class="montando-o-painel">
+    <div class="div">
+      <div class="overlap"><img class="group" src="img/group-581.svg" /></div>
+      <img class="img" src="img/group-580.svg" />
+      <div class="text-wrapper">Aguarde...</div>
+      <div class="text-wrapper-2">Estamos montando sua plataforma</div>
+      <div class="frame">
+        <h4 id="task1" style="font-family: Poppins, Helvetica; ">✓ Criando ambiente seguro.</h4>
       </div>
+      <div class="frame-2">
+        <h4 id="task2" style="font-family: Poppins, Helvetica;">✓ Criando painel de controle.</h4>
+      </div>
+      <div class="frame-3">
+        <h4 id="task3" style="font-family: Poppins, Helvetica;">✓ Criando acessos dos clientes.</h4>
+      </div>
+      <div class="frame-4">
+        <h4 id="task4" style="font-family: Poppins, Helvetica;">✓ Enviando dados por e-mail.</h4>
+      </div>
+       <div class="frame-5">
+        
+      </div> 
       <div class="progress-bar">
         <div class="bar" id="progress-bar"></div>
         <div id="text-wrapper-4" style="font-size: 25px; font-family: Poppins, Semibold;">0%</div>
-
-      </div>
-         <!-- <p id="demo" style="font-size:30px"></p> 
-        <div class="text-wrapper-4">50%</div>  -->
+        <h4 id="task5"
+          >
+          Estamos lhe redirecionando para a plataforma</h4>
       </div>
     </div>
-    <script>
-      function PlataformaExistente() {
-          var plataforma = $("#hdnPlataforma").val()
-          $.get("/Home/PlataformaExistente", { plataforma: plataforma }, function (data) {
-              if (data.logou && data.pingou) {
-                  window.location.href = "https://" + plataforma + '/Login/Inicio';
-              }
-              else if (data.existe && data.pingou) {
-                  window.location.href = "https://" + plataforma + '/Login/LogarPrimeiraVez';
-              }
-              else if (!data.pingou) {
-                  window.location.href = "https://www.fidelimax.com.br/obrigado";
-              }
-          });
-      }
-  
-      function startTimer(duration, display) {
-          var timer = duration, minutes, seconds;
-          setInterval(function () {
-              minutes = parseInt(timer / 60, 10)
-              seconds = parseInt(timer % 60, 10);
-  
-              minutes = minutes < 10 ? "0" + minutes : minutes;
-              seconds = seconds < 10 ? "0" + seconds : seconds;
-  
-              display.textContent = minutes + ":" + seconds;
-  
-              if (--timer < 0) {
-                  timer = duration;
-              }
-          }, 1000);
-      }
-  
-      $(function () {
-          setInterval(PlataformaExistente, 35000);
-          setInterval(function () { $("#task1").css('display', 'block'); }, 4200);
-          setInterval(function () { $("#task2").css('display', 'block'); }, 8400);
-          setInterval(function () {
-              $("#task3").css('display', 'block');
-  
-              var plataforma = $("#hdnPlataforma").val()
-              $.get("/Home/GravarMeioCriacaoConta", { plataforma: plataforma }, function () {
-              });
-  
-          }, 15600);
-          setInterval(function () { $("#task4").css('display', 'block'); }, 19800);
-          setInterval(function () { $("#task5").css('display', 'block'); }, 25000);
-          setInterval(function () { $("#task6").css('display', 'block'); }, 28500);
-          var fiveMinutes = 37
-          display = document.querySelector('#demo');
-          startTimer(fiveMinutes, display);
-  
+  </div>
+
+  <script>
+    function PlataformaExistente() {
+      var plataforma = $("#hdnPlataforma").val()
+      $.get("/Home/PlataformaExistente", { plataforma: plataforma }, function (data) {
+        if (data.logou && data.pingou) {
+          window.location.href = "https://" + plataforma + '/Login/Inicio';
+        } else if (data.existe && data.pingou) {
+          window.location.href = "https://" + plataforma + '/Login/LogarPrimeiraVez';
+        } else if (!data.pingou) {
+          window.location.href = "https://www.fidelimax.com.br/obrigado";
+        }
       });
-  </script>
-  <script>
-    const progressBar = document.getElementById("progress-bar");
-const tasks = ["task1", "task2", "task3", "task4", "task5", "task6"];
-let currentTaskIndex = 0;
-
-function simulateProgress() {
-  if (currentTaskIndex < tasks.length) {
-    const taskElement = document.getElementById(tasks[currentTaskIndex]);
-    taskElement.style.display = "block";
-
-    currentTaskIndex++;
-
-    const progress = (currentTaskIndex / tasks.length) * 100;
-    progressBar.style.width = `${progress}%`;
-
-    setTimeout(simulateProgress, 1000); 
-  }
-}
-
-simulateProgress();
-  </script>
-
-  <script>
-const taskss = [
-  "task1",
-  "task2",
-  "task3",
-  "task4",
-  "task5",
-  "task6"
-];
-
-function updateProgressBar() {
-  let currentIndex = 0;
-
-  function showNextTask() {
-    if (currentIndex < taskss.length) {
-      const taskId = taskss[currentIndex];
-      const taskElement = document.getElementById(taskId);
-
-      taskElement.parentElement.classList.add('green-text');
-      taskElement.style.display = "block";
-
-      currentIndex++;
-      const progressText = document.getElementById("text-wrapper-4");
-      const progress = (currentIndex / taskss.length) * 100;
-      progressText.textContent = progress.toFixed(0) + "%";
-      const progressBar = document.getElementById("progress-bar");
-      progressBar.style.width = progress + "%";
-
-
-      setTimeout(showNextTask, 1000); 
     }
+
+    function startTimer(duration, display) {
+      var timer = duration, minutes, seconds;
+      setInterval(function () {
+        minutes = parseInt(timer / 60, 10)
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+          timer = duration;
+        }
+      }, 1000);
+    }
+
+    $(function () {
+      setInterval(PlataformaExistente, 35000);
+      setInterval(function () { $("#task1").css('display', 'block'); }, 4200);
+      setInterval(function () { $("#task2").css('display', 'block'); }, 8400);
+      setInterval(function () {
+        $("#task3").css('display', 'block');
+
+        var plataforma = $("#hdnPlataforma").val()
+        $.get("/Home/GravarMeioCriacaoConta", { plataforma: plataforma }, function () {
+        });
+
+      }, 15600);
+      setInterval(function () { $("#task4").css('display', 'block'); }, 19800);
+      setInterval(function () { $("#task5").css('display', 'block'); }, 20000);
+      var fiveMinutes = 37;
+      display = document.querySelector('#demo');
+      startTimer(fiveMinutes, display);
+    });
+  </script>
+
+<script>
+  const taskss = [
+    "task1",
+    "task2",
+    "task3",
+    "task4",
+  ];
+
+  function updateProgressBar() {
+    const progressText = document.getElementById("text-wrapper-4");
+    const progressBar = document.getElementById("progress-bar");
+    progressText.textContent = "0%";
+    progressBar.style.width = "0%";
+    let currentIndex = 0;
+
+    function showNextTask() {
+      if (currentIndex < taskss.length) {
+        const taskId = taskss[currentIndex];
+        const taskElement = document.getElementById(taskId);
+
+        taskElement.style.color = "var(--lightmode-feedbackpositive-pure)"; 
+
+        taskElement.style.display = "block";
+
+        const progress = ((currentIndex + 1) / taskss.length) * 100;
+        progressText.textContent = progress.toFixed(0) + "%";
+        progressBar.style.width = progress + "%";
+
+        currentIndex++;
+
+        setTimeout(showNextTask, 5000);
+        
+        if (progress >= 100) {
+            progressText.textContent = "Pronto!";
+          }
+      }
+    }
+
+    setTimeout(showNextTask, 3000); 
   }
 
-  showNextTask();
-}
+  updateProgressBar();
+</script>
 
-updateProgressBar();
+</body>
 
-  </script>
-  </body>
 </html>
